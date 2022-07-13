@@ -7,8 +7,8 @@ import styles from "../styles/index.module.scss";
 
 const Home: NextPage = () => {
   return (
-    <div className="h-screen w-full">
-      <MainLayout>
+    <MainLayout>
+      <div className={styles.firstSection}>
         <div className={styles.rightContent}>
           <div className={styles.text}>
             <div className={styles.spanCol}>
@@ -32,8 +32,9 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div></div>
-      </MainLayout>
-    </div>
+      </div>
+      <div className={styles.firstSection}>as</div>
+    </MainLayout>
   );
 };
 

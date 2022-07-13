@@ -1,6 +1,13 @@
+.firstSection {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.5em;
+}
+
 .rightContent {
   display: grid;
-  height: 100vh;
+  height: 100%;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(6, 1fr);
   column-gap: 20px;
@@ -16,7 +23,7 @@
 
 .midCont {
   grid-column: 2 / span 4;
-  grid-row: 4 / span 1;
+  grid-row: 3 / span 1;
   font-weight: lighter;
   font-size: 16px;
 
@@ -26,7 +33,7 @@
 }
 
 .text {
-  grid-row: 3 / span 1;
+  grid-row: 2 / span 1;
   display: flex;
   grid-column: 2 / span 4;
   width: 100%;
@@ -51,7 +58,7 @@
 
   .fullstack {
     background: #5562ff;
-    box-shadow: rgba(85, 98, 255, 1) 0px 7px 29px 0px;
+    box-shadow: rgba(85, 98, 255, 1) 0px 0px 29px 0px;
     border-radius: 50px;
     width: 304px;
     height: 90px;
@@ -71,7 +78,7 @@
 }
 
 .rowButton {
-  grid-row: 5 / span 1;
+  grid-row: 4 / span 1;
   grid-column: 2 / span 4;
   height: auto;
   width: 100%;

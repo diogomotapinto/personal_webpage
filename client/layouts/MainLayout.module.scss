@@ -1,14 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .mainLayout {
-  height: 100vh;
   overflow: scroll;
   width: 100%;
-  position: fixed;
   top: 0;
   z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 0.5em;
   font-family: "Roboto", sans-serif;
 }

@@ -13,7 +13,6 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <Head>Layout</Head>
       <Nav></Nav>
       <Background></Background>
-
       <main className={styles.mainLayout}>{children}</main>
     </>
   );
