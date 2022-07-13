@@ -19,8 +19,11 @@ const Home: NextPage = () => {
           </div>
           <div className={styles.midCont}>
             <span>
-              Worked as a professional software engineer since 2021 and have
-              been developing intelligent solutions for some years prior
+              I&apos;m a full stack developer based in Porto with a passion for
+              building things that people love. I love to create things that
+              make a difference in the world. I&apos;m a fast learner and a team
+              player, always looking for new challenges and opportunities to
+              learn and grow.
             </span>
           </div>
           <div className={styles.rowButton}>

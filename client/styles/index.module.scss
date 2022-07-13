@@ -10,12 +10,19 @@
   @media screen and (max-width: 768px) {
     grid-column-start: 1;
     grid-column-end: 13;
+    grid-template-rows: 0.8fr repeat(4, 1fr);
   }
 }
 
 .midCont {
   grid-column: 2 / span 4;
   grid-row: 4 / span 1;
+  font-weight: lighter;
+  font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    grid-row: 3 / span 1;
+  }
 }
 
 .text {
@@ -27,6 +34,11 @@
   .spanCol {
     display: flex;
     flex-direction: column;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    grid-row: 2 / span 1;
   }
 
   span {
@@ -58,10 +70,11 @@
   justify-content: space-around;
 
   @media screen and (max-width: 768px) {
-    grid-row: 5 / span 2;
+    grid-row: 4 / span 1;
     grid-template-columns: 2 / span 5;
     flex-direction: column;
     align-items: center;
+    height: 100%;
   }
 
   .hireMe {
@@ -73,6 +86,11 @@
     font-weight: 700;
     &:hover {
       box-shadow: rgba(254, 72, 28, 1) 0px 0px 5px 0px;
+    }
+    @media screen and (max-width: 1500px) {
+      width: 200px;
+      height: 80px;
+      font-size: 24px;
     }
   }
 
@@ -90,6 +108,12 @@
     font-weight: 700;
     &:hover {
       box-shadow: rgba(143, 215, 255, 1) 0px 0px 5px 0px;
+    }
+
+    @media screen and (max-width: 1500px) {
+      width: 200px;
+      height: 80px;
+      font-size: 24px;
     }
   }
 }
