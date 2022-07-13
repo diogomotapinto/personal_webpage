@@ -10,8 +10,8 @@ function Box(props: any) {
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => {
     if (mesh.current) {
-      mesh.current.position.y = Math.sin(Date.now() * 0.001) * 2;
-      mesh.current.position.x = Math.cos(Date.now() * 0.001) * 2;
+      // mesh.current.position.y = Math.sin(Date.now() * 0.001) * 2;
+      //mesh.current.position.x = Math.cos(Date.now() * 0.001) * 2;
     }
   });
   // Return view, these are regular three.js elements expressed in JSX
