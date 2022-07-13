@@ -1,0 +1,95 @@
+.rightContent {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 20px;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  @media screen and (max-width: 768px) {
+    grid-column-start: 1;
+    grid-column-end: 13;
+  }
+}
+
+.midCont {
+  grid-column: 2 / span 4;
+  grid-row: 4 / span 1;
+}
+
+.text {
+  grid-row: 3 / span 1;
+  display: flex;
+  grid-column: 2 / span 4;
+  width: 100%;
+  justify-content: space-around;
+  .spanCol {
+    display: flex;
+    flex-direction: column;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  .fullstack {
+    background: #5562ff;
+    box-shadow: rgba(85, 98, 255, 1) 0px 7px 29px 0px;
+    border-radius: 50px;
+    width: 304px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    font-size: 32px;
+  }
+}
+
+.rowButton {
+  grid-row: 5 / span 1;
+  grid-column: 2 / span 4;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  @media screen and (max-width: 768px) {
+    grid-row: 5 / span 2;
+    grid-template-columns: 2 / span 5;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hireMe {
+    width: 234px;
+    height: 100px;
+    background: #fe481c;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    &:hover {
+      box-shadow: rgba(254, 72, 28, 1) 0px 0px 5px 0px;
+    }
+  }
+
+  .timeline {
+    width: 234px;
+    height: 100px;
+    background: linear-gradient(
+      90deg,
+      #7c86ff 0%,
+      #8db8ff 51.04%,
+      #8fd7ff 100%
+    );
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    &:hover {
+      box-shadow: rgba(143, 215, 255, 1) 0px 0px 5px 0px;
+    }
+  }
+}

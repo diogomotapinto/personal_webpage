@@ -1,0 +1,30 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.circle {
+  position: fixed;
+  left: 10%;
+  top: 25%;
+}
+
+.squareOne {
+  position: fixed;
+  left: 15%;
+  top: 80%;
+}
+
+.squareTwo {
+  position: fixed;
+  left: 80%;
+  top: 15%;
+}
+
+.zigzag {
+  position: fixed;
+  left: 75%;
+  top: 70%;
+}

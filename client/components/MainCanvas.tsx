@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as THREE from "three";
+import Home from "../components/Home/Home";
 
 const MainCanvas = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    console.log("useeffect");
     if (!loaded && ref) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(
@@ -19,13 +21,20 @@ const MainCanvas = () => {
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(window.innerWidth, window.innerHeight);
 
-      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const geometry = new THREE.SphereBufferGeometry(1, 80, 80);
       const material = new THREE.MeshStandardMaterial({
         color: "#00FF95",
       });
+      material.roughness = 0;
+      material.metalness = 0;
+
+      const materialPlane = new THREE.MeshStandardMaterial({
+        color: "#f6f6f6",
+      });
 
       const light = new THREE.PointLight(0xffffff);
-      const light2 = new THREE.PointLight(0xffffff);
+      const light2 = new THREE.PointLight(0xffffff, 0.5, 10);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 
       light2.lookAt(0, 0, 0);
       light2.position.set(3, 3, 3);
@@ -33,24 +42,28 @@ const MainCanvas = () => {
       light.lookAt(0, 0, 0);
       light.position.set(0, 0, 5);
 
+      scene.add(ambientLight);
       scene.add(light2);
-      scene.add(light);
+      //scene.add(light);
 
       camera.position.z = 5;
-      camera.position.x = 0;
+      camera.position.y = 2;
+      camera.position.x = -2;
 
-      const Figure = new THREE.Mesh(geometry, material);
-      const plane = new THREE.Mesh(geometry, material);
-      plane.scale.set(5, 0.2, 5);
+      const figure = new THREE.Mesh(geometry, material);
+      const plane = new THREE.Mesh(geometry, materialPlane);
+
+      plane.scale.set(10, 0.2, 10);
+
       plane.position.y = -2;
 
-      scene.add(Figure);
+      scene.add(figure);
       scene.add(plane);
 
       light2.castShadow = true;
 
       light.castShadow = true;
-      Figure.castShadow = true;
+      figure.castShadow = true;
       plane.receiveShadow = true;
 
       const controls = new OrbitControls(camera, ref.current || undefined);
@@ -68,7 +81,7 @@ const MainCanvas = () => {
         light.position.y = camera.position.y;
         light.position.z = camera.position.z;
 
-        Figure.position.y = Math.sin(Date.now() * 0.001) * 1;
+        figure.position.y = Math.sin(Date.now() * 0.001) * 1;
 
         light.castShadow = true;
         renderer.shadowMap.enabled = true;
@@ -89,21 +102,11 @@ const MainCanvas = () => {
       setLoaded(true);
       return () => window.removeEventListener("resize", resize);
     }
-  }, [ref, loaded]);
+  }, []);
 
   return (
     <>
-      <h1
-        style={{
-          position: "absolute",
-          top: "0",
-          fontSize: "2rem",
-          color: "#fff",
-          zIndex: 1,
-        }}
-      >
-        Hey
-      </h1>
+      <Home></Home>
       <div
         style={{
           height: "100vh",
