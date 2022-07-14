@@ -9,6 +9,14 @@ const Home: NextPage = () => {
   return (
     <MainLayout>
       <div className={styles.firstSection}>
+        <span className={styles.scrollBtn}>
+          <a href="#">
+            <span className={styles.mouse}>
+              <span></span>
+            </span>
+          </a>
+          <p>scroll me</p>
+        </span>
         <div className={styles.rightContent}>
           <div className={styles.text}>
             <div className={styles.spanCol}>
@@ -27,7 +35,7 @@ const Home: NextPage = () => {
             </span>
           </div>
           <div className={styles.rowButton}>
-            <button className={styles.hireMe}>Hire me</button>
+            <button className={styles.hireMe}>Contact me</button>
             <button className={styles.timeline}>Timeline </button>
           </div>
         </div>
