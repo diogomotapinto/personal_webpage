@@ -9,16 +9,14 @@ const Home: NextPage = () => {
   return (
     <MainLayout>
       <div className={styles.firstSection}>
-        <span className={styles.scrollBtn}>
-          <a href="#">
-            <span className={styles.mouse}>
-              <span></span>
-            </span>
-          </a>
-          <p>scroll me</p>
-        </span>
+        <div className={styles.movingmouseholder}>
+          <div className={styles.mouse}>
+            <div className={styles.mousebutton}>&nbsp;</div>
+          </div>
+          <div className={styles.text}>SCROLL DOWN TO EXPLORE MORE</div>
+        </div>
         <div className={styles.rightContent}>
-          <div className={styles.text}>
+          <div className={styles.textCont}>
             <div className={styles.spanCol}>
               <span>Hi! I&apos;m</span>
               <span>Diogo Mota</span>
