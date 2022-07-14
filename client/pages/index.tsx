@@ -9,12 +9,6 @@ const Home: NextPage = () => {
   return (
     <MainLayout>
       <div className={styles.firstSection}>
-        <div className={styles.movingmouseholder}>
-          <div className={styles.mouse}>
-            <div className={styles.mousebutton}>&nbsp;</div>
-          </div>
-          <div className={styles.text}>SCROLL DOWN TO EXPLORE MORE</div>
-        </div>
         <div className={styles.rightContent}>
           <div className={styles.textCont}>
             <div className={styles.spanCol}>
@@ -35,6 +29,14 @@ const Home: NextPage = () => {
           <div className={styles.rowButton}>
             <button className={styles.hireMe}>Contact me</button>
             <button className={styles.timeline}>Timeline </button>
+          </div>
+          <div className={styles.mouseCont}>
+            <div className={styles.movingmouseholder}>
+              <div className={styles.mouse}>
+                <div className={styles.mousebutton}>&nbsp;</div>
+              </div>
+              <div className={styles.text}>SCROLL DOWN TO EXPLORE MORE</div>
+            </div>
           </div>
         </div>
         <div></div>

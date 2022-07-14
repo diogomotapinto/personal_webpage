@@ -10,15 +10,15 @@
   display: grid;
   height: 100%;
   grid-template-rows: repeat(6, 1fr);
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   column-gap: 20px;
   align-items: center;
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 13;
   @media screen and (max-width: 768px) {
-    grid-column-start: 1;
-    grid-column-end: 13;
-    grid-template-rows: 0.4fr repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    grid-template-rows: 0.8fr repeat(4, 1fr);
   }
 }
 
@@ -88,7 +88,7 @@
 
   @media screen and (max-width: 768px) {
     grid-row: 4 / span 1;
-    grid-template-columns: 2 / span 5;
+    grid-column: 2 / span 5;
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -168,24 +168,37 @@
   }
 }
 
+.mouseCont {
+  grid-row: 5 / span 1;
+  grid-column: 6 / span 2;
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-end;
+
+  @media screen and (max-width: 768px) {
+    grid-row: 5 / span 1;
+    grid-column: 1 / span 5;
+  }
+}
+
 // animated mouse scroll down button
 .movingmouseholder {
-  position: absolute;
-  bottom: 2%;
-  left: 45%;
-  margin: auto;
-  margin-top: 60px;
-  width: 170px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   @media screen and (max-width: 768px) {
     left: 45%;
   }
 }
 
 .movingmouseholder .mouse {
-  width: 26px;
+  width: 36px;
   height: 40px;
-  position: relative;
-  right: 0;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
   border-radius: 18px;
   border: 2px solid #000000;
 }
@@ -195,7 +208,7 @@
   width: 4px;
   height: 10px;
   border-radius: 2px;
-  position: absolute;
+  position: relative;
   top: 10px;
   left: 50%;
   margin: 0 0 0 -2px;
@@ -203,10 +216,8 @@
 }
 
 .movingmouseholder .text {
-  position: absolute;
-  left: 20%;
-  bottom: 20%;
   color: #33cc66;
+
   font-size: 12px;
   line-height: 1em;
 }
