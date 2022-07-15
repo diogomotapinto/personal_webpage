@@ -1,9 +1,9 @@
 .firstSection {
   height: 100vh;
-  position: relative;
+  width: 100wh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 0.5em;
+  column-gap: 1em;
 }
 
 .rightContent {
