@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Center from "../components/Center";
 import Cols from "../components/Cols/Cols";
+import Console from "../components/Console";
 import Container from "../components/Container/Container";
 import MainLayout from "../layouts/MainLayout";
 import styles from "../styles/index.module.scss";
@@ -12,8 +13,7 @@ const Home: NextPage = () => {
         <div className={styles.rightContent}>
           <div className={styles.textCont}>
             <div className={styles.spanCol}>
-              <span>Hi! I&apos;m</span>
-              <span>Diogo Mota</span>
+              <span>👋 Hi! I&apos;m Diogo </span>
             </div>
             <div className={styles.fullstack}>Full Stack</div>
           </div>
@@ -30,6 +30,7 @@ const Home: NextPage = () => {
             <button className={styles.hireMe}>Contact me</button>
             <button className={styles.timeline}>Timeline </button>
           </div>
+          <Console></Console>
           <div className={styles.mouseCont}>
             <div className={styles.movingmouseholder}>
               <div className={styles.mouse}>
@@ -39,7 +40,6 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div></div>
       </div>
       <div className={styles.firstSection}>as</div>
     </MainLayout>
