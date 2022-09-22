@@ -1609,10 +1609,10 @@
     cannon-es "^0.20.0"
     cannon-es-debugger "^1.0.0"
 
-"@react-three/drei@^9.32.0":
-  version "9.32.0"
-  resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-three/drei/-/drei-9.32.0.tgz#882833b927d81309b23970c8424d0d0e6cc0e6c0"
-  integrity sha512-Ddb81jkmqDNCtKcYcEjfxG1QVRcYElnaqAIoxNe5kLg4+kuMHbb+c94/qNRYVj79iidn50ACmFQ87jsrmuQWEw==
+"@react-three/drei@9.30.0":
+  version "9.30.0"
+  resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-three/drei/-/drei-9.30.0.tgz#ec19186879f7ec5901e5b9cb2fccae00bd0d25db"
+  integrity sha512-2JAhZSYR5/m0+FlRKjS/w2EgMT0UTyNbO/+zAuTryCoj1gPMQOTzV5l8MKDk7fMpFvGEVEqaf/hW53Ozse0A8Q==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
