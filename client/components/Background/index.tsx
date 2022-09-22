@@ -2,14 +2,16 @@ import Circle from "./Circle";
 import Square from "./Square";
 import Zigzag from "./Zigzag";
 import styles from "./Background.module.scss";
+import Interactive from "../Interactive";
 
 const Background = () => {
   return (
     <div className={styles.main}>
-      <Circle className={styles.circle}></Circle>
+      {/* <Circle className={styles.circle}></Circle>
       <Square className={styles.squareOne}></Square>
       <Square className={styles.squareTwo}></Square>
-      <Zigzag className={styles.zigzag}></Zigzag>
+      <Zigzag className={styles.zigzag}></Zigzag> */}
+      <Interactive></Interactive>
     </div>
   );
 };

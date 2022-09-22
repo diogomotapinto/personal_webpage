@@ -1,25 +1,35 @@
 .navGrid {
   position: fixed;
-  background: rgba(255, 255, 255, 0.2);
+  //background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 3;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+
   gap: 20px;
 }
 
 .navStyle {
-  grid-column-start: 2;
-  grid-column-end: 13;
   right: 0;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 1em;
+  }
 }
 
 .logoName {
   font-size: 64px;
   font-weight: bold;
+  background: -webkit-linear-gradient(45deg, #524bc9, #00ff95 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .dot {
