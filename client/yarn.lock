@@ -1554,13 +1554,23 @@
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@pmndrs/cannon-worker-api/-/cannon-worker-api-2.2.0.tgz#f1fefff3572fe77728ac8e3095676318e4121a38"
   integrity sha512-IS1Ewx4PPkz/mAAzfiKy0HtEIECtkwDsAvErEQdEn0EbVUAEnh5f0Pdnv3/1k4afZfuDj0AO+87JlbBcUUpRTw==
 
-"@react-spring/animated@~9.5.4":
+"@react-spring/animated@~9.5.3", "@react-spring/animated@~9.5.4":
   version "9.5.4"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/animated/-/animated-9.5.4.tgz#4fb2114c5b68243fc451d9af33f5dadd5b3b1c42"
   integrity sha512-gYd+xWwcNxEGA9EdORz/xsGsuQmz46FCu7OLIGOZK00fiSkjEM8yTwBQ9i8SUslRAdxTW+POL5OctDpCA6A7xw==
   dependencies:
     "@react-spring/shared" "~9.5.4"
     "@react-spring/types" "~9.5.4"
+
+"@react-spring/core@9.5.3":
+  version "9.5.3"
+  resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/core/-/core-9.5.3.tgz#b9eea5f5c68b07073adae589ad0483b4743caffe"
+  integrity sha512-j4jsgOcBX+jjqEcKq31C7K/gEqoSVg7HbeN4jNiyyxZNlZIUV+UKMC3U68SzpisPjccRT4zuauvgLz/9aesxCg==
+  dependencies:
+    "@react-spring/animated" "~9.5.3"
+    "@react-spring/rafz" "~9.5.3"
+    "@react-spring/shared" "~9.5.3"
+    "@react-spring/types" "~9.5.3"
 
 "@react-spring/core@~9.5.4":
   version "9.5.4"
@@ -1572,12 +1582,12 @@
     "@react-spring/shared" "~9.5.4"
     "@react-spring/types" "~9.5.4"
 
-"@react-spring/rafz@~9.5.4":
+"@react-spring/rafz@~9.5.3", "@react-spring/rafz@~9.5.4":
   version "9.5.4"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/rafz/-/rafz-9.5.4.tgz#a2a036cb3e948c4f2a4be4d59e53857550c03db7"
   integrity sha512-Tmev2j7sq2FW3ISUClnNS0PhkCsBfPPpkHVMxz8mkIKzMGXWskd0GblOoPVJiWvhbccaX/NYd+ykJqJ1gY0v9g==
 
-"@react-spring/shared@~9.5.4":
+"@react-spring/shared@~9.5.3", "@react-spring/shared@~9.5.4":
   version "9.5.4"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/shared/-/shared-9.5.4.tgz#0ae556047274997b87979df7ac27c29c58f590b3"
   integrity sha512-22IYmNOzDRP9e5BaQk6T/P2aRxne9uTzGDYuBQCbJpChZypB98xWBMKlVTKdSRG7K4v+F97KFPAKBQzS/k7p5Q==
@@ -1595,7 +1605,7 @@
     "@react-spring/shared" "~9.5.4"
     "@react-spring/types" "~9.5.4"
 
-"@react-spring/types@~9.5.4":
+"@react-spring/types@~9.5.3", "@react-spring/types@~9.5.4":
   version "9.5.4"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/types/-/types-9.5.4.tgz#6d26df992a32ea5532a1e7b732f5485857116b00"
   integrity sha512-dzcGxqL1kPKociXK+pcq5ley77cWDWiphfv8OREv8dAZS1dKDTJq1zVy7ZD5ocyMtKMZw/7AcOdIJ1H80Dp56g==

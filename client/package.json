@@ -11,6 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@react-spring/core": "9.5.3",
     "@react-three/cannon": "^6.4.0",
     "@react-three/drei": "9.30.0",
     "@react-three/fiber": "^8.0.9",
