@@ -5,8 +5,8 @@ const Nav = () => {
       <nav className={styles.navStyle}>
         <span className={styles.logoName}>D.</span>
         <div className="flex flex-row">
-          <p>About me.</p>
-          <p>Contacts.</p>
+          <p>About me</p>
+          <p>Contacts</p>
         </div>
       </nav>
     </div>

@@ -11,7 +11,6 @@ const Background = () => {
       <Square className={styles.squareOne}></Square>
       <Square className={styles.squareTwo}></Square>
       <Zigzag className={styles.zigzag}></Zigzag> */}
-      <Interactive></Interactive>
     </div>
   );
 };

@@ -29,10 +29,25 @@ export default function Interactive() {
         defaultContactMaterial={{ restitution: 0.5 }}
       >
         <group position={[0, 0, -10]}>
+          <Mouse />
           <Borders />
           <InstancedSpheres />
         </group>
       </Physics>
+      {/* <EffectComposer>
+        <SSAO
+          radius={0.4}
+          intensity={50}
+          luminanceInfluence={0.4}
+          color="red"
+        />
+        <Bloom
+          intensity={1.25}
+          kernelSize={3}
+          luminanceThreshold={0.5}
+          luminanceSmoothing={0.0}
+        />
+      </EffectComposer> */}
     </Canvas>
   );
 }
@@ -82,4 +97,16 @@ function Borders() {
 function Plane({ color, ...props }) {
   usePlane(() => ({ ...props }));
   return null;
+}
+
+function Mouse() {
+  const { viewport } = useThree();
+  const [, api] = useSphere(() => ({ type: "Kinematic", args: [5] }));
+  return useFrame((state) =>
+    api.position.set(
+      (state.mouse.x * viewport.width) / 2,
+      (state.mouse.y * viewport.height) / 2,
+      7
+    )
+  );
 }
