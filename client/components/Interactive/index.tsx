@@ -2,6 +2,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Physics, usePlane, useSphere } from "@react-three/cannon";
 import { EffectComposer, SSAO, Bloom } from "@react-three/postprocessing";
+import { Text } from "@react-three/drei";
 
 export default function Interactive() {
   return (
@@ -24,6 +25,7 @@ export default function Interactive() {
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
+      <Caption>{`Software Developer\nBased in Porto.`}</Caption>
       <Physics
         gravity={[0, -50, 0]}
         defaultContactMaterial={{ restitution: 0.5 }}
@@ -52,7 +54,7 @@ export default function Interactive() {
   );
 }
 
-function InstancedSpheres({ count = 200 }) {
+function InstancedSpheres({ count = 300 }) {
   const { viewport } = useThree();
   const [ref] = useSphere((index) => ({
     mass: 100,
@@ -69,6 +71,24 @@ function InstancedSpheres({ count = 200 }) {
       <sphereBufferGeometry args={[1.2, 32, 32]} />
       <meshLambertMaterial color="#00ff95" />
     </instancedMesh>
+  );
+}
+
+function Caption({ children }) {
+  const { width } = useThree((state) => state.viewport);
+  return (
+    <Text
+      position={[0, 0, -5]}
+      lineHeight={0.8}
+      font="/Ki-Medium.ttf"
+      fontSize={width / 8}
+      color="black"
+      material-toneMapped={false}
+      anchorX="center"
+      anchorY="middle"
+    >
+      {children}
+    </Text>
   );
 }
 
@@ -101,7 +121,7 @@ function Plane({ color, ...props }) {
 
 function Mouse() {
   const { viewport } = useThree();
-  const [, api] = useSphere(() => ({ type: "Kinematic", args: [5] }));
+  const [, api] = useSphere(() => ({ type: "Kinematic", args: [6] }));
   return useFrame((state) =>
     api.position.set(
       (state.mouse.x * viewport.width) / 2,
