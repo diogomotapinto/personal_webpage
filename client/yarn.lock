@@ -1819,7 +1819,7 @@
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/types/-/types-9.5.4.tgz#6d26df992a32ea5532a1e7b732f5485857116b00"
   integrity sha512-dzcGxqL1kPKociXK+pcq5ley77cWDWiphfv8OREv8dAZS1dKDTJq1zVy7ZD5ocyMtKMZw/7AcOdIJ1H80Dp56g==
 
-"@react-spring/web@~9.5.4":
+"@react-spring/web@^9.5.4", "@react-spring/web@~9.5.4":
   version "9.5.4"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@react-spring/web/-/web-9.5.4.tgz#ea46780761deb4c5a42dcc9745c2a121f8229a66"
   integrity sha512-HoypE3kL/ZUBB81hThE1hB9jYBgJmfeluEOPYoI/wGHyF1q8O0AYpWClvdAbiK3FTESHYZi2m60jwitF7VYUlQ==
@@ -3259,7 +3259,7 @@
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@use-gesture/core/-/core-10.2.20.tgz#b29e0aadd5e90336e599d849e50eef0e06aa28bf"
   integrity sha512-4lFhHc8so4yIHkBEs641DnEsBxPyhJ5GEjB4PURFDH4p/FcZriH6w99knZgI63zN/MBFfylMyb8+PDuj6RIXKQ==
 
-"@use-gesture/react@^10.2.0", "@use-gesture/react@^10.2.5":
+"@use-gesture/react@^10.2.0", "@use-gesture/react@^10.2.20", "@use-gesture/react@^10.2.5":
   version "10.2.20"
   resolved "https://osdi-shared-405507331778.d.codeartifact.eu-central-1.amazonaws.com:443/npm/osdi-respository/@use-gesture/react/-/react-10.2.20.tgz#2d556a62c22200507b9d478ce7159057004acb8d"
   integrity sha512-KnJq9ZSqprWA6uNhWTUHZqTCh+rfa0j8ehTzqeBhktUPrmTj7yVOBvEQ/vSFU/7d72cGgWSsJ0f5T6GQCHXnvg==
