@@ -6,7 +6,7 @@ import styles from "../styles/index.module.scss";
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <div className=" h-screen w-full">
+      <div className="h-screen w-full">
         <Interactive></Interactive>
         {/* <div>
           <p className="text-8xl text-bold text-center">

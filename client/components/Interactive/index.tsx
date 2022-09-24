@@ -28,7 +28,7 @@ export default function Interactive() {
           shadow-camera-bottom={-10}
         />
 
-        <Caption>{`Software Developer\nBased in Porto.`}</Caption>
+        <Caption>{`I'm Diogo\nSoftware Developer\nBased in Porto.`}</Caption>
 
         <Physics
           gravity={[0, -50, 0]}
@@ -41,25 +41,25 @@ export default function Interactive() {
           </group>
         </Physics>
         {/* <EffectComposer>
-        <SSAO
-          radius={0.4}
-          intensity={50}
-          luminanceInfluence={0.4}
-          color="red"
-        />
-        <Bloom
-          intensity={1.25}
-          kernelSize={3}
-          luminanceThreshold={0.5}
-          luminanceSmoothing={0.0}
-        />
-      </EffectComposer> */}
+          <SSAO
+            radius={0.1}
+            intensity={0.1}
+            luminanceInfluence={0.1}
+            color="#2c54bb"
+          />
+          <Bloom
+            intensity={0.1}
+            kernelSize={1}
+            luminanceThreshold={0.1}
+            luminanceSmoothing={0.0}
+          />
+        </EffectComposer> */}
       </Suspense>
     </Canvas>
   );
 }
 
-function InstancedSpheres({ count = 300 }) {
+function InstancedSpheres({ count = 200 }) {
   const { viewport } = useThree();
   const [ref] = useSphere((index) => ({
     mass: 100,
