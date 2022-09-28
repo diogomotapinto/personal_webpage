@@ -1,110 +1,177 @@
 import type { NextPage } from "next";
-import { ReactElement, Suspense } from "react";
+import { ReactElement, Suspense, useRef, useState } from "react";
 import styles from "../styles/index.module.scss";
 import MainLayout from "../layouts/MainLayout";
-import { useState } from "react";
-import { useSprings, animated, to as interpolate } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
-import AboutBG from "../components/AboutBG";
+
+import { useTransition, animated } from "react-spring";
+
+import Image from "next/image";
+
+type Exp = {
+  id: number;
+  dates: string;
+  title: string;
+  subtitle: string;
+  content: string;
+};
+
+const Experience: Exp[] = [
+  {
+    id: 1,
+    dates: "2022 - Ongoing",
+    title: "Prime IT",
+    subtitle: "FullStack Developer",
+    content:
+      "Worked as a full-stack developer for a company based in Germany. During this time worked with technologies such as Vue.js and AWS cloud services.",
+  },
+  {
+    id: 2,
+    dates: "2021 - 2022",
+    title: "Deloitte",
+    subtitle: "OutSystems Developer",
+    content:
+      "Integrated a consulting team developed a product for a big company based in Scotland. The team used Scrum for project management with tools such as Jira and Confluence, and OutSystems as the primary technology to build this product.",
+  },
+  {
+    id: 3,
+    dates: "2020 - 2021",
+    title: "Inesc TEC",
+    subtitle: "Research Intern - FullStack Developer",
+    content:
+      "Developed a project using innovative technologies such as Next.js (a React.js framework), GraphQL, node.js with typescript, and PostgreSQL. The project consisted of a platform to gather data from Bluetooth devices connect to a smartphone. During my internship, I also had the opportunity to modify an Android application made with Java to fit my use case.",
+  },
+  {
+    id: 4,
+    dates: "2016 - 2021",
+    title: "FEUP",
+    subtitle: "Student",
+    content: "Master in Informatics and Computing Engineering",
+  },
+];
+
+const images: { path: string; alt: string }[] = [
+  {
+    path: "react",
+    alt: "react",
+  },
+
+  {
+    path: "vuejs",
+    alt: "vuejs",
+  },
+  {
+    path: "typescript",
+    alt: "typescript",
+  },
+  {
+    path: "nodejs",
+    alt: "nodejs",
+  },
+
+  {
+    alt: "amazonwebservices",
+    path: "amazonwebservices",
+  },
+  {
+    alt: "postgresql",
+    path: "postgresql",
+  },
+  {
+    alt: "figma",
+    path: "figma",
+  },
+  {
+    alt: "github",
+    path: "github",
+  },
+  {
+    alt: "andoid",
+    path: "android",
+  },
+];
 
 const About: NextPage = () => {
+  const [exps] = useState(Experience);
+  const transitions = useTransition(exps, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    delay: 400,
+    trail: 100,
+  });
+  const ref = useRef<HTMLDivElement>(null);
+
+  const goTo = () => {
+    if (ref !== null && ref.current !== null) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <MainLayout>
-      <div className="fixed h-screen w-full pt-24 z-0">
-        <div className="h-full w-full">
-          <AboutBG></AboutBG>
+      <div className="fixed h-screen w-full pt-24 z-0 overflow-y-scroll">
+        <div
+          onClick={goTo}
+          className="fixed w-10 h-10 bg-sky-500 p-2 text-center rounded shadow-md bottom-6 left-6 text-white cursor-pointer"
+        >
+          D
         </div>
-      </div>
-      <div className="fixed h-screen w-full pt-24 z-10">
-        <div className={styles.deckPos}>
-          <div>
-            <Deck></Deck>
+        <div className="h-6/12 w-9/12  justify-center justify-self-center mx-auto my-auto ">
+          <h2 className="font-bold text-4xl py-2 text-blue-400 text-justify">
+            Experience
+          </h2>
+          <ul>
+            {transitions(({ opacity }, item) => (
+              <>
+                <animated.li
+                  style={{
+                    opacity: opacity.to((o) => o),
+                  }}
+                  key={item.id}
+                  className={`grid md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 py-4  ${
+                    item.id !== exps.length ? "border-b-2" : ""
+                  }`}
+                >
+                  <div className="font-bold  text-xl py-4">{item.dates}</div>
+                  <div className="font-bold text-2xl py-4 flex flex-col">
+                    <span> {item.title}</span>
+
+                    <span className="font-regular opacity-50 text-sm">
+                      {item.subtitle}
+                    </span>
+                  </div>
+                  <div className="font-bold my-auto py-4 text-gray-500">
+                    {item.content}
+                  </div>
+                </animated.li>
+              </>
+            ))}
+          </ul>
+        </div>
+        <div
+          ref={ref}
+          className="h-full w-9/12  justify-center justify-self-center mx-auto my-auto mt-4"
+        >
+          <h2 className="font-bold text-4xl py-2 text-teal-500">
+            Technologies
+          </h2>
+          <div className="p-4 grid w-full h-full grid-cols-3 gap-6 grid-rows-3">
+            {images.map((image) => {
+              return (
+                <Image
+                  key={image.alt}
+                  width={42}
+                  height={42}
+                  className="grayscale hover:grayscale-0"
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${image.path}/${image.path}-original.svg`}
+                  alt={image.alt}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
     </MainLayout>
   );
 };
-
-const cards = [
-  "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/3/3a/TheLovers.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg",
-];
-
-// These two are just helpers, they curate spring data, values that are later being interpolated into css
-const to = (i: number) => ({
-  x: 0,
-  y: i * -4,
-  scale: 1,
-  rot: -10 + Math.random() * 20,
-  delay: i * 100,
-});
-const from = (_i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
-// This is being used down there in the view, it interpolates rotation and scale into a css transform
-const trans = (r: number, s: number) =>
-  `perspective(1500px) rotateX(30deg) rotateY(${
-    r / 10
-  }deg) rotateZ(${r}deg) scale(${s})`;
-
-function Deck() {
-  const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
-  const [props, api] = useSprings(cards.length, (i) => ({
-    ...to(i),
-    from: from(i),
-  })); // Create a bunch of springs using the helpers above
-  // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
-  const bind = useDrag(
-    ({
-      args: [index],
-      active,
-      movement: [mx],
-      direction: [xDir],
-      velocity: [vx],
-    }) => {
-      const trigger = vx > 0.2; // If you flick hard enough it should trigger the card to fly out
-      if (!active && trigger) gone.add(index); // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
-      api.start((i) => {
-        if (index !== i) return; // We're only interested in changing spring-data for the current spring
-        const isGone = gone.has(index);
-        const x = isGone ? (200 + window.innerWidth) * xDir : active ? mx : 0; // When a card is gone it flys out left or right, otherwise goes back to zero
-        const rot = mx / 100 + (isGone ? xDir * 10 * vx : 0); // How much the card tilts, flicking it harder makes it rotate faster
-        const scale = active ? 1.1 : 1; // Active cards lift up a bit
-        return {
-          x,
-          rot,
-          scale,
-          delay: undefined,
-          config: { friction: 50, tension: active ? 800 : isGone ? 200 : 500 },
-        };
-      });
-      if (!active && gone.size === cards.length)
-        setTimeout(() => {
-          gone.clear();
-          api.start((i) => to(i));
-        }, 600);
-    }
-  );
-  // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return (
-    <>
-      {props.map(({ x, y, rot, scale }, i) => (
-        <animated.div className={styles.deck} key={i} style={{ x, y }}>
-          {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-          <animated.div
-            {...bind(i)}
-            style={{
-              transform: interpolate([rot, scale], trans),
-              backgroundImage: `url(${cards[i]})`,
-            }}
-          />
-        </animated.div>
-      ))}
-    </>
-  );
-}
 
 export default About;

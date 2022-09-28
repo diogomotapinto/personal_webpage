@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Interactive from "../components/Interactive";
 import MainLayout from "../layouts/MainLayout";
-import styles from "../styles/index.module.scss";
 
 const Home: NextPage = () => {
   return (

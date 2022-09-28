@@ -250,8 +250,16 @@
 
 .deckPos {
   position: absolute;
-  top: calc(50% - 200px / 2);
-  left: calc(50% - 300px / 2);
+  top: calc(50% - 100px / 2);
+  left: calc(80% - 300px / 2);
+}
+
+@media screen and (max-width: 768px) {
+  .deckPos {
+    position: absolute;
+    top: calc(50% - 200px / 2);
+    left: calc(50% - 300px / 2);
+  }
 }
 
 .deck {

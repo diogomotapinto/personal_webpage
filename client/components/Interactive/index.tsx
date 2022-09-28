@@ -40,20 +40,6 @@ export default function Interactive() {
             <InstancedSpheres />
           </group>
         </Physics>
-        {/* <EffectComposer>
-          <SSAO
-            radius={0.1}
-            intensity={0.1}
-            luminanceInfluence={0.1}
-            color="#2c54bb"
-          />
-          <Bloom
-            intensity={0.1}
-            kernelSize={1}
-            luminanceThreshold={0.1}
-            luminanceSmoothing={0.0}
-          />
-        </EffectComposer> */}
       </Suspense>
     </Canvas>
   );
