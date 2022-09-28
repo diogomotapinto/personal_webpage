@@ -15,7 +15,7 @@ const baubleMaterial = new THREE.MeshStandardMaterial({
   emissive: "#370037",
 });
 
-const AboutBG = ({ html, caption = "" }: { html: any }) => {
+const AboutBG = ({ children, caption = "" }: { children: any }) => {
   return (
     <Canvas
       dpr={[1, 2]}
@@ -24,7 +24,7 @@ const AboutBG = ({ html, caption = "" }: { html: any }) => {
       <Suspense fallback={null}>
         <directionalLight position={[0, 0, 10]} intensity={0.5} />
         <ambientLight intensity={1.5} />
-        <Html>{html}</Html>
+        <Html>{children}</Html>
         <Caption>{`${caption}`}</Caption>
         <ambientLight intensity={0.25} />
         <spotLight
