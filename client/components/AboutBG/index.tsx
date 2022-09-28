@@ -5,7 +5,7 @@ import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
 import { Physics, useSphere, usePlane } from "@react-three/cannon";
-
+import { Text } from "@react-three/drei";
 const rfs = THREE.MathUtils.randFloatSpread;
 const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
 const baubleMaterial = new THREE.MeshStandardMaterial({
@@ -15,7 +15,7 @@ const baubleMaterial = new THREE.MeshStandardMaterial({
   emissive: "#370037",
 });
 
-const AboutBG = ({ children }: { children: any }) => {
+const AboutBG = ({ html, caption = "" }: { html: any }) => {
   return (
     <Canvas
       dpr={[1, 2]}
@@ -24,8 +24,8 @@ const AboutBG = ({ children }: { children: any }) => {
       <Suspense fallback={null}>
         <directionalLight position={[0, 0, 10]} intensity={0.5} />
         <ambientLight intensity={1.5} />
-        <Html>{children}</Html>
-
+        <Html>{html}</Html>
+        <Caption>{`${caption}`}</Caption>
         <ambientLight intensity={0.25} />
         <spotLight
           intensity={1}
@@ -119,6 +119,7 @@ function Borders() {
       <Plane
         position={[viewport.width / 2 + 1, 0, 0]}
         rotation={[0, -Math.PI / 2, 0]}
+        color="red"
       />
       <Plane position={[0, 0, -1]} rotation={[0, 0, 0]} />
       <Plane position={[0, 0, 12]} rotation={[0, -Math.PI, 0]} />
@@ -144,6 +145,23 @@ function Pointer() {
       (state.mouse.y * viewport.height) / 2,
       0
     )
+  );
+}
+
+function Caption({ children }) {
+  const { width } = useThree((state) => state.viewport);
+  return (
+    <Text
+      position={[0, 0, -7]}
+      lineHeight={0.8}
+      fontSize={width / 8}
+      color="white"
+      material-toneMapped={false}
+      anchorX="center"
+      anchorY="middle"
+    >
+      {children}
+    </Text>
   );
 }
 

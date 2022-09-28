@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { ReactElement, Suspense, useRef, useState } from "react";
 import styles from "../styles/index.module.scss";
 import MainLayout from "../layouts/MainLayout";
-
+import Head from "next/head";
 import { useTransition, animated } from "react-spring";
 
 import Image from "next/image";
@@ -108,6 +108,9 @@ const About: NextPage = () => {
 
   return (
     <MainLayout>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <div className="fixed h-screen w-full pt-24 z-0 overflow-y-scroll">
         <div
           onClick={goTo}
