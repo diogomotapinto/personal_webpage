@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSprings, animated, to as interpolate } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
+import styles from "../../styles/index.module.scss";
 
 const cards = [
   "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg",
