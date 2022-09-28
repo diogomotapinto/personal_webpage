@@ -5,18 +5,12 @@ import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
 import { Physics, useSphere } from "@react-three/cannon";
-import {
-  Sky,
-  Environment,
-  Effects as EffectComposer,
-  useTexture,
-} from "@react-three/drei";
 
 const rfs = THREE.MathUtils.randFloatSpread;
 const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
 const baubleMaterial = new THREE.MeshStandardMaterial({
   color: "teal",
-  roughness: 0.7,
+  roughness: 0,
   envMapIntensity: 0.2,
   emissive: "#370037",
 });
@@ -31,7 +25,7 @@ const AboutBG = ({ children }: { children: any }) => {
         <directionalLight position={[0, 0, 10]} intensity={0.5} />
         <ambientLight intensity={1.5} />
         <Html>{children}</Html>
-        <Sky />
+
         <ambientLight intensity={0.25} />
         <spotLight
           intensity={1}
@@ -44,7 +38,7 @@ const AboutBG = ({ children }: { children: any }) => {
         <directionalLight
           intensity={5}
           position={[-10, -10, -10]}
-          color="purple"
+          color="#2c54bb"
         />
         <Physics gravity={[0, 2, 0]} iterations={10}>
           <Pointer />
@@ -101,7 +95,7 @@ function Pointer() {
   const viewport = useThree((state) => state.viewport);
   const [, api] = useSphere(() => ({
     type: "Kinematic",
-    args: [3],
+    args: [4],
     position: [0, 0, 0],
   }));
   return useFrame((state) =>
