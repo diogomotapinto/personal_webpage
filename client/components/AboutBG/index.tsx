@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
-import { Physics, useSphere } from "@react-three/cannon";
+import { Physics, useSphere, usePlane } from "@react-three/cannon";
 
 const rfs = THREE.MathUtils.randFloatSpread;
 const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
@@ -40,9 +40,22 @@ const AboutBG = ({ children }: { children: any }) => {
           position={[-10, -10, -10]}
           color="#2c54bb"
         />
+        <directionalLight
+          castShadow
+          intensity={1}
+          position={[50, 50, 25]}
+          shadow-mapSize={[256, 256]}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
         <Physics gravity={[0, 2, 0]} iterations={10}>
-          <Pointer />
-          <Clump />
+          <group position={[0, 0, -10]}>
+            <Pointer />
+            <Borders />
+            <Clump />
+          </group>
         </Physics>
       </Suspense>
     </Canvas>
@@ -91,11 +104,38 @@ function Clump({
   );
 }
 
+function Borders() {
+  const { viewport } = useThree();
+  return (
+    <>
+      <Plane
+        position={[0, -viewport.height / 2, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+      />
+      <Plane
+        position={[-viewport.width / 2 - 1, 0, 0]}
+        rotation={[0, Math.PI / 2, 0]}
+      />
+      <Plane
+        position={[viewport.width / 2 + 1, 0, 0]}
+        rotation={[0, -Math.PI / 2, 0]}
+      />
+      <Plane position={[0, 0, -1]} rotation={[0, 0, 0]} />
+      <Plane position={[0, 0, 12]} rotation={[0, -Math.PI, 0]} />
+    </>
+  );
+}
+
+function Plane({ color, ...props }) {
+  usePlane(() => ({ ...props }));
+  return null;
+}
+
 function Pointer() {
   const viewport = useThree((state) => state.viewport);
   const [, api] = useSphere(() => ({
     type: "Kinematic",
-    args: [4],
+    args: [3],
     position: [0, 0, 0],
   }));
   return useFrame((state) =>
@@ -104,58 +144,6 @@ function Pointer() {
       (state.mouse.y * viewport.height) / 2,
       0
     )
-  );
-}
-
-// function Caption({ children }: { children: any }) {
-//   const { width } = useThree((state) => state.viewport);
-//   return (
-//     <Text
-//       position={[0, 0, -5]}
-//       lineHeight={0.8}
-//       fontSize={width / 10}
-//       material-toneMapped={false}
-//       color="white"
-//       castShadow={true}
-//       anchorX="center"
-//       anchorY="middle"
-//     >
-//       {children}
-//     </Text>
-//   );
-// }
-
-function Bg() {
-  return (
-    <mesh scale={100} receiveShadow={true}>
-      <boxGeometry args={[1, 1, 1]} />
-      <LayerMaterial
-        side={THREE.BackSide}
-        iridescenceMap={undefined}
-        iridescenceIOR={undefined}
-        iridescenceThicknessRange={undefined}
-        iridescenceThicknessMap={undefined}
-      >
-        <Depth
-          colorB="green"
-          colorA="skyblue"
-          alpha={1}
-          mode="normal"
-          near={130}
-          far={200}
-          origin={[100, 100, -100]}
-        />
-        <Noise
-          mapping="local"
-          type="white"
-          scale={1000}
-          colorA="white"
-          colorB="black"
-          mode="subtract"
-          alpha={0.2}
-        />
-      </LayerMaterial>
-    </mesh>
   );
 }
 
