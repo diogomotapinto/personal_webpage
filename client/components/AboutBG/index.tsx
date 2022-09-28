@@ -1,30 +1,116 @@
+// @ts-nocheck
 import * as THREE from "three";
 import { Suspense } from "react";
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { Canvas, useThree, useFrame, extend } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { LayerMaterial, Depth, Noise } from "lamina";
+import { Physics, useSphere } from "@react-three/cannon";
+import {
+  Sky,
+  Environment,
+  Effects as EffectComposer,
+  useTexture,
+} from "@react-three/drei";
+
+const rfs = THREE.MathUtils.randFloatSpread;
+const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+const baubleMaterial = new THREE.MeshStandardMaterial({
+  color: "teal",
+  roughness: 0,
+  envMapIntensity: 0.2,
+  emissive: "#370037",
+});
 
 const AboutBG = ({ children }: { children: any }) => {
   return (
-    <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 10], fov: 22 }}>
-      <Bg />
+    <Canvas
+      dpr={[1, 2]}
+      camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 40 }}
+    >
       <Suspense fallback={null}>
         <directionalLight position={[0, 0, 10]} intensity={0.5} />
         <ambientLight intensity={1.5} />
         <Html>{children}</Html>
-        <Rig />
+        <Sky />
+        <ambientLight intensity={0.25} />
+        <spotLight
+          intensity={1}
+          angle={0.2}
+          penumbra={1}
+          position={[30, 30, 30]}
+          castShadow
+          shadow-mapSize={[512, 512]}
+        />
+        <directionalLight
+          intensity={5}
+          position={[-10, -10, -10]}
+          color="purple"
+        />
+        <Physics gravity={[0, 2, 0]} iterations={10}>
+          <Pointer />
+          <Clump />
+        </Physics>
       </Suspense>
     </Canvas>
   );
 };
 
-function Rig({ v = new THREE.Vector3() }) {
-  return useFrame((state) => {
-    state.camera.position.lerp(
-      v.set(state.mouse.x / 2, state.mouse.y - 2, 12),
-      0.05
-    );
+function Clump({
+  mat = new THREE.Matrix4(),
+  vec = new THREE.Vector3(),
+  ...props
+}) {
+  const [ref, api] = useSphere(() => ({
+    args: [1],
+    mass: 1,
+    angularDamping: 0.1,
+    linearDamping: 0.65,
+    position: [rfs(20), rfs(20), rfs(20)],
+  }));
+  useFrame((state) => {
+    for (let i = 0; i < 40; i++) {
+      // Get current whereabouts of the instanced sphere
+      ref.current.getMatrixAt(i, mat);
+      // Normalize the position and multiply by a negative force.
+      // This is enough to drive it towards the center-point.
+      api
+        .at(i)
+        .applyForce(
+          vec
+            .setFromMatrixPosition(mat)
+            .normalize()
+            .multiplyScalar(-50)
+            .toArray(),
+          [0, 0, 0]
+        );
+    }
   });
+  return (
+    <instancedMesh
+      ref={ref}
+      castShadow
+      receiveShadow
+      args={[null, null, 40]}
+      geometry={sphereGeometry}
+      material={baubleMaterial}
+    />
+  );
+}
+
+function Pointer() {
+  const viewport = useThree((state) => state.viewport);
+  const [, api] = useSphere(() => ({
+    type: "Kinematic",
+    args: [3],
+    position: [0, 0, 0],
+  }));
+  return useFrame((state) =>
+    api.position.set(
+      (state.mouse.x * viewport.width) / 2,
+      (state.mouse.y * viewport.height) / 2,
+      0
+    )
+  );
 }
 
 // function Caption({ children }: { children: any }) {

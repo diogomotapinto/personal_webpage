@@ -81,8 +81,8 @@ const images: { path: string; alt: string }[] = [
     path: "figma",
   },
   {
-    alt: "github",
-    path: "github",
+    alt: "git",
+    path: "git",
   },
   {
     alt: "andoid",
