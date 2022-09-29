@@ -15,7 +15,13 @@ const baubleMaterial = new THREE.MeshStandardMaterial({
   emissive: "#370037",
 });
 
-const AboutBG = ({ children, caption = "" }: { children: any }) => {
+const AboutBG = ({
+  children,
+  caption = "",
+}: {
+  children?: any;
+  caption?: string;
+}) => {
   return (
     <Canvas
       dpr={[1, 2]}
@@ -119,7 +125,6 @@ function Borders() {
       <Plane
         position={[viewport.width / 2 + 1, 0, 0]}
         rotation={[0, -Math.PI / 2, 0]}
-        color="red"
       />
       <Plane position={[0, 0, -1]} rotation={[0, 0, 0]} />
       <Plane position={[0, 0, 12]} rotation={[0, -Math.PI, 0]} />
@@ -136,7 +141,7 @@ function Pointer() {
   const viewport = useThree((state) => state.viewport);
   const [, api] = useSphere(() => ({
     type: "Kinematic",
-    args: [3],
+    args: [6],
     position: [0, 0, 0],
   }));
   return useFrame((state) =>
@@ -155,7 +160,7 @@ function Caption({ children }) {
       position={[0, 0, -7]}
       lineHeight={0.8}
       fontSize={width / 8}
-      color="white"
+      color="black"
       material-toneMapped={false}
       anchorX="center"
       anchorY="middle"

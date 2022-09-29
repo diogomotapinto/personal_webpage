@@ -8,16 +8,9 @@ import MainLayout from "../layouts/MainLayout";
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <div className="fixed h-screen w-full pt-24 z-0 ">
-        <div className="w-full h-full bg-black">
-          <AboutBG caption="Github diogomotapinto">
-            <div className="text-2xl text-white font-bold">
-              Github diogomotapinto
-            </div>
-          </AboutBG>
+        <div className="w-full h-full">
+          <AboutBG></AboutBG>
         </div>
       </div>
     </MainLayout>

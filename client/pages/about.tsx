@@ -108,9 +108,6 @@ const About: NextPage = () => {
 
   return (
     <MainLayout>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <div className="fixed h-screen w-full pt-24 z-0 overflow-y-scroll">
         <div
           onClick={goTo}
