@@ -8,7 +8,7 @@ const Nav = () => {
     <div className={styles.navGrid}>
       <nav className={styles.navStyle}>
         <Link passHref={true} href="/">
-          <span className={styles.logoName}>D.</span>
+          <span className={styles.logoName}>Dl.</span>
         </Link>
         <div className="flex flex-row">
           <ul className="list-none flex flex-row">
@@ -21,10 +21,10 @@ const Nav = () => {
             </li>
             <li
               className={`${
-                router.pathname === "/contacts" ? "text-sky-600" : ""
+                router.pathname === "/contact" ? "text-sky-600" : ""
               }`}
             >
-              <Link href="/contacts">Contacts</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
