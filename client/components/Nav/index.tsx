@@ -8,7 +8,7 @@ const Nav = () => {
     <div className={styles.navGrid}>
       <nav className={styles.navStyle}>
         <Link passHref={true} href="/">
-          <span className={styles.logoName}>Dl.</span>
+          <span className={styles.logoName}>DL.</span>
         </Link>
         <div className="flex flex-row">
           <ul className="list-none flex flex-row">
