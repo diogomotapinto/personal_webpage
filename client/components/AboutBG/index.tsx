@@ -1,6 +1,6 @@
 // @ts-nocheck
 import * as THREE from "three";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   MarchingCubes,
@@ -9,6 +9,7 @@ import {
   Sky,
   Bounds,
   Text,
+  Html,
 } from "@react-three/drei";
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
 import { LayerMaterial, Depth, Noise } from "lamina";
@@ -142,51 +143,53 @@ export default function AboutBG() {
     <>
       <Overlay></Overlay>
       <Canvas camera={{ position: [0, 0, 5], fov: 25 }}>
-        <ambientLight intensity={1} />
-        <directionalLight intensity={1} />
-        <directionalLight
-          intensity={10}
-          position={[-10, -10, -10]}
-          color="purple"
-        />
-        <directionalLight
-          intensity={10}
-          position={[0, 0, -50]}
-          color="purple"
-        />
-        <Physics gravity={[0, 2, 0]}>
-          <MarchingCubes
-            resolution={64}
-            maxPolyCount={20000}
-            enableUvs={false}
-            enableColors
-          >
-            <meshPhysicalMaterial
-              roughness={0}
-              thickness={0}
-              clearcoat={1}
-              transmission={1}
-              vertexColors
-            />
-            <MetaBall color="skyblue" position={[1, 1, 0.5]} />
-            <MetaBall color="pink" position={[-1, -1, -0.5]} />
-            <MetaBall color="teal" position={[2, 2, 0.5]} />
-            <MetaBall color="teal" position={[-2, -2, -0.5]} />
-            <MetaBall color="purple" position={[3, 3, 0.5]} />
-            <MetaBall color="skyblue" position={[-3, -3, -0.5]} />
-            <Pointer />
-            <Bg />
-            <Rig />
-          </MarchingCubes>
-        </Physics>
+        <Suspense fallback={<Html>Loading...</Html>}>
+          <ambientLight intensity={1} />
+          <directionalLight intensity={1} />
+          <directionalLight
+            intensity={10}
+            position={[-10, -10, -10]}
+            color="purple"
+          />
+          <directionalLight
+            intensity={10}
+            position={[0, 0, -50]}
+            color="purple"
+          />
+          <Physics gravity={[0, 2, 0]}>
+            <MarchingCubes
+              resolution={64}
+              maxPolyCount={20000}
+              enableUvs={false}
+              enableColors
+            >
+              <meshPhysicalMaterial
+                roughness={0}
+                thickness={0}
+                clearcoat={1}
+                transmission={1}
+                vertexColors
+              />
+              <MetaBall color="skyblue" position={[1, 1, 0.5]} />
+              <MetaBall color="pink" position={[-1, -1, -0.5]} />
+              <MetaBall color="teal" position={[2, 2, 0.5]} />
+              <MetaBall color="teal" position={[-2, -2, -0.5]} />
+              <MetaBall color="purple" position={[3, 3, 0.5]} />
+              <MetaBall color="skyblue" position={[-3, -3, -0.5]} />
+              <Pointer />
+              <Bg />
+              <Rig />
+            </MarchingCubes>
+          </Physics>
 
-        <Environment files="adamsbridge.hdr" />
-        {/* Zoom to fit a 1/1/1 box to match the marching cubes */}
-        <Bounds fit clip observe margin={1}>
-          <mesh visible={false}>
-            <boxGeometry />
-          </mesh>
-        </Bounds>
+          <Environment files="adamsbridge.hdr" />
+          {/* Zoom to fit a 1/1/1 box to match the marching cubes */}
+          <Bounds fit clip observe margin={1}>
+            <mesh visible={false}>
+              <boxGeometry />
+            </mesh>
+          </Bounds>
+        </Suspense>
       </Canvas>
     </>
   );
