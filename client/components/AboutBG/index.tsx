@@ -8,7 +8,6 @@ import {
   Environment,
   Sky,
   Bounds,
-  Text,
   Html,
 } from "@react-three/drei";
 import { Physics, RigidBody, BallCollider } from "@react-three/rapier";
@@ -72,11 +71,11 @@ function Plane() {
 
 function Overlay() {
   return (
-    <div className="absolute top-1/4 mx-4 left-0 flex  z-30 text-white flex-col font-sans">
+    <div className="absolute top-1/4 mx-4 left-0 flex  z-30 text-black flex-col font-sans">
       {" "}
       <h1 className="text-4xl font-bold ">Socials</h1>
       <h2 className="text-2xl font-bold ">
-        Github -{" "}
+        Github{" "}
         <a
           className="text-blue-300 underline"
           href="https://github.com/diogomotapinto"
@@ -101,43 +100,6 @@ export default function AboutBG() {
   //   attenuationTint: '#ffe79e',
   //   attenuationDistance: { value: 0, min: 0, max: 1 },
   // })
-
-  function Rig({ v = new THREE.Vector3() }) {
-    return useFrame((state) => {
-      state.camera.position.lerp(
-        v.set(state.mouse.x / 2, state.mouse.y / 2, 3),
-        0.1
-      );
-    });
-  }
-
-  function Bg() {
-    return (
-      <mesh scale={100}>
-        <boxGeometry args={[1, 1, 1]} />
-        <LayerMaterial side={THREE.BackSide}>
-          <Depth
-            colorB="red"
-            colorA="skyblue"
-            alpha={1}
-            mode="normal"
-            near={130}
-            far={200}
-            origin={[100, 100, -100]}
-          />
-          <Noise
-            mapping="local"
-            type="white"
-            scale={1000}
-            colorA="white"
-            colorB="black"
-            mode="subtract"
-            alpha={0.2}
-          />
-        </LayerMaterial>
-      </mesh>
-    );
-  }
 
   return (
     <>
@@ -177,8 +139,7 @@ export default function AboutBG() {
               <MetaBall color="purple" position={[3, 3, 0.5]} />
               <MetaBall color="skyblue" position={[-3, -3, -0.5]} />
               <Pointer />
-              <Bg />
-              <Rig />
+              <Sky />
             </MarchingCubes>
           </Physics>
 
