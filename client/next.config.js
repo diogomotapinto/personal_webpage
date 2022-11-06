@@ -1,16 +1,15 @@
 /** @type {import('next').NextConfig} */
-const path = require("path");
-
 const nextConfig = {
-  reactStrictMode: true,
-};
-
-module.exports = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+  experimental: {
+    appDir: true,
   },
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+      },
       {
         protocol: "https",
         hostname: "cdn.jsdelivr.net",
@@ -20,5 +19,6 @@ module.exports = {
     ],
     domains: ["cdn.jsdelivr.net"],
   },
-  nextConfig,
 };
+
+module.exports = nextConfig;
