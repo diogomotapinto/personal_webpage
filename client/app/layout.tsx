@@ -28,9 +28,7 @@ export default function RootLayout({
           <div id="nav-links">
             <Link href="/" className="nav-link">
               <h2 className="nav-link-label rubik-font">Home</h2>
-              <Image
-                width={500}
-                height={500}
+              <img
                 alt=""
                 className="nav-link-image"
                 src="https://images.unsplash.com/photo-1513735492246-483525079686?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
@@ -38,9 +36,7 @@ export default function RootLayout({
             </Link>
             <Link href="/work" className="nav-link">
               <h2 className="nav-link-label rubik-font">Work</h2>
-              <Image
-                width={500}
-                height={500}
+              <img
                 alt=""
                 className="nav-link-image"
                 src="https://images.unsplash.com/photo-1509718443690-d8e2fb3474b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
@@ -48,32 +44,18 @@ export default function RootLayout({
             </Link>
             <Link href="/" className="nav-link">
               <h2 className="nav-link-label rubik-font">About</h2>
-              <Image
-                width={500}
-                height={500}
+              <img
                 alt=""
                 className="nav-link-image"
-                src="https://images.unsplash.com/photo-1666005487638-61f45819c975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+                src="https://images.unsplash.com/photo-1642702550383-3436f1b3d6ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
               />
             </Link>
             <Link href="/" className="nav-link">
               <h2 className="nav-link-label rubik-font">Contact</h2>
-              <Image
-                width={500}
-                height={500}
+              <img
                 alt=""
                 className="nav-link-image"
-                src="https://images.unsplash.com/photo-1665910407771-bc84ad45676b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
-              />
-            </Link>
-            <Link href="/" className="nav-link">
-              <h2 className="nav-link-label rubik-font">Join Us</h2>
-              <Image
-                alt=""
-                width={500}
-                height={500}
-                className="nav-link-image"
-                src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+                src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
               />
             </Link>
           </div>
