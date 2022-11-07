@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { useTransition, animated } from "react-spring";
 
@@ -96,26 +96,11 @@ export default function Work() {
     delay: 400,
     trail: 100,
   });
-  const ref = useRef<HTMLDivElement>(null);
-
-  const goTo = () => {
-    if (ref !== null && ref.current !== null) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <div className="fixed h-screen w-full pt-24 z-0 overflow-y-scroll">
-      <div
-        onClick={goTo}
-        className="fixed w-10 h-10 bg-sky-500 p-2 text-center rounded shadow-md bottom-6 left-6 text-white cursor-pointer"
-      >
-        D
-      </div>
       <div className="h-6/12 w-9/12  justify-center justify-self-center mx-auto my-auto ">
-        <h2 className="font-bold text-4xl py-2 text-blue-400 text-justify">
-          Experience
-        </h2>
+        <h2 className="font-bold text-6xl py-2 text-justify">Experience</h2>
         <ul>
           {transitions(({ opacity }, item) => (
             <>
@@ -124,9 +109,7 @@ export default function Work() {
                   opacity: opacity.to((o) => o),
                 }}
                 key={item.id}
-                className={`grid md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 py-4  ${
-                  item.id !== exps.length ? "border-b-2" : ""
-                }`}
+                className={`grid md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 py-4`}
               >
                 <div className="font-bold  text-xl py-4">{item.dates}</div>
                 <div className="font-bold text-2xl py-4 flex flex-col">
@@ -144,11 +127,8 @@ export default function Work() {
           ))}
         </ul>
       </div>
-      <div
-        ref={ref}
-        className="h-full w-9/12  justify-center justify-self-center mx-auto my-auto mt-4"
-      >
-        <h2 className="font-bold text-4xl py-2 text-teal-500">Technologies</h2>
+      {/* <div className="h-full w-9/12  justify-center justify-self-center mx-auto my-auto mt-4">
+        <h2 className="font-bold text-6xl py-2">Technologies</h2>
         <div className="p-4 grid w-full h-full grid-cols-3 gap-6 grid-rows-3 place-items-center">
           {images.map((image) => {
             return (
@@ -163,7 +143,7 @@ export default function Work() {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
