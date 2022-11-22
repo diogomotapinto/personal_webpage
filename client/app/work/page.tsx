@@ -109,17 +109,19 @@ export default function Work() {
                   opacity: opacity.to((o) => o),
                 }}
                 key={item.id}
-                className={`grid md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 py-4`}
+                className={`grid md:grid-rows-2 py-4`}
               >
-                <div className="font-bold  text-xl py-4">{item.dates}</div>
-                <div className="font-bold text-2xl py-4 flex flex-col">
+                <div className="font-bold text-2xl py-4 flex flex-col sm:text-8xl">
                   <span> {item.title}</span>
+                  <div className="font-bold  text-xl py-4 sm:text-4xl">
+                    {item.dates}
+                  </div>
 
-                  <span className="font-regular opacity-50 text-sm">
+                  <span className="font-regular opacity-50 text-sm sm:text-2xl">
                     {item.subtitle}
                   </span>
                 </div>
-                <div className="font-bold my-auto py-4 text-gray-500">
+                <div className="font-bold my-auto py-4 text-gray-500 sm:text-4xl">
                   {item.content}
                 </div>
               </animated.li>
@@ -127,23 +129,6 @@ export default function Work() {
           ))}
         </ul>
       </div>
-      {/* <div className="h-full w-9/12  justify-center justify-self-center mx-auto my-auto mt-4">
-        <h2 className="font-bold text-6xl py-2">Technologies</h2>
-        <div className="p-4 grid w-full h-full grid-cols-3 gap-6 grid-rows-3 place-items-center">
-          {images.map((image) => {
-            return (
-              <Image
-                key={image.alt}
-                width={150}
-                height={150}
-                className="grayscale hover:grayscale-0"
-                src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${image.path}/${image.path}-original.svg`}
-                alt={image.alt}
-              />
-            );
-          })}
-        </div>
-      </div> */}
     </div>
   );
 }
