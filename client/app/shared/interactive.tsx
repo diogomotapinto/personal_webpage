@@ -29,9 +29,7 @@ export default function Interactive() {
             shadow-camera-top={10}
             shadow-camera-bottom={-10}
           />
-
           <Caption>{`Diogo\nSoftware Developer\nBased in Porto.`}</Caption>
-
           <Physics
             gravity={[0, -50, 0]}
             defaultContactMaterial={{ restitution: 0.5 }}

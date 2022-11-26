@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Create Next App</title>
+        <title>Diogo&apos;s</title>
         <meta name="description" content="Diogo's personal website" />
         <link rel="icon" href="/favicon.ico" />
       </head>
