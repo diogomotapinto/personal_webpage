@@ -89,7 +89,7 @@ body[data-nav="true"] > nav > #nav-links {
   left: 50%;
   bottom: 3rem;
   transform: translateX(-50%);
-  background-color: rgba(182, 142, 113, 0.8);
+  background-color: rgba(0, 255, 149, 0.8);
   border: none;
   border-radius: 5rem;
   outline: none;
@@ -109,7 +109,7 @@ body[data-nav="true"] > nav > #nav-links {
 }
 
 body[data-nav="true"] > #nav-toggle {
-  background-color: rgb(85, 130, 149);
+  background-color: rgb(44, 84, 187);
 }
 
 body:not([data-nav="true"]) > #nav-toggle:hover > .open {
@@ -209,7 +209,7 @@ body[data-nav="true"] > #nav-toggle > .close {
     left: 50%;
     bottom: 3rem;
     transform: translateX(-50%);
-    background-color: rgba(182, 142, 113, 0.8);
+    background-color: rgba(0, 255, 149, 0.8);
     border: none;
     border-radius: 15rem;
     outline: none;

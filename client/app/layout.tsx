@@ -23,8 +23,8 @@ export default function RootLayout({
       </head>
       <body data-nav={nav}>
         <button id="nav-toggle" onClick={toggleNav} type="button">
-          <i className="open fa-light fa-bars-staggered">Menu</i>
-          <i className="close fa-light fa-xmark-large">Close</i>
+          <i className="open fa-light fa-bars-staggered"></i>
+          <i className="close fa-light fa-xmark-large"></i>
         </button>
         <main>{children}</main>
         <nav>
