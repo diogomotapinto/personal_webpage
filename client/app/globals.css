@@ -82,8 +82,8 @@ body[data-nav="true"] > nav > #nav-links {
 }
 
 #nav-toggle {
-  height: 5rem;
-  width: 5rem;
+  height: 2rem;
+  width: 2rem;
   position: fixed;
   z-index: 3;
   left: 50%;
@@ -100,6 +100,10 @@ body[data-nav="true"] > nav > #nav-links {
   transition-timing-function: ease;
   transition-duration: 400ms;
   transition: color 1s ease-in;
+  @media screen and (min-width: 900px) {
+    height: 5rem;
+    width: 5rem;
+  }
 }
 
 #nav-toggle:hover {
@@ -191,7 +195,7 @@ body[data-nav="true"] > #nav-toggle > .close {
   }
 }
 
-@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (device-width: 390px) and (-webkit-device-pixel-ratio: 3) {
   nav {
     height: 50vh;
     width: 100%;
