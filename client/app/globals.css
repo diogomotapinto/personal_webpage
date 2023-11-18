@@ -89,15 +89,17 @@ body[data-nav="true"] > nav > #nav-links {
   left: 50%;
   bottom: 3rem;
   transform: translateX(-50%);
-  background-color: rgba(0, 255, 149, 0.8);
-  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(0 0 0 / 25%);
   border-radius: 5rem;
   outline: none;
-  box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+  box-shadow: 0rem 0rem 10rem rgba(0 0 0 / 35%);
   cursor: pointer;
   transition: transform, background-color;
   transition-timing-function: ease;
   transition-duration: 400ms;
+  transition: color 1s ease-in;
 }
 
 #nav-toggle:hover {
@@ -109,7 +111,8 @@ body[data-nav="true"] > nav > #nav-links {
 }
 
 body[data-nav="true"] > #nav-toggle {
-  background-color: rgb(44, 84, 187);
+  transition: color 1s ease-in;
+  background-color: rgba(255 255 255 / 50%);
 }
 
 body:not([data-nav="true"]) > #nav-toggle:hover > .open {

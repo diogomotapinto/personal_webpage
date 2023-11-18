@@ -20,7 +20,7 @@ const Experience: Exp[] = [
     title: "Prime IT",
     subtitle: "FullStack Developer",
     content:
-      "Worked as a full-stack developer for a company based in Germany. During this time worked with technologies such as Vue.js and AWS cloud services.",
+      "Worked as a full-stack developer for a Germany-based company, where I utilized technologies like Vue.js and AWS cloud services.",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const Experience: Exp[] = [
     title: "Deloitte",
     subtitle: "OutSystems Developer",
     content:
-      "Integrated a consulting team developed a product for a big company based in Scotland. The team used Scrum for project management with tools such as Jira and Confluence, and OutSystems as the primary technology to build this product.",
+      "Contributed to a consulting team that successfully developed a product for a major company in Scotland. Implemented Scrum for project management, utilizing tools like Jira and Confluence. Leveraged OutSystems as the primary technology for product development.",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const Experience: Exp[] = [
     title: "Inesc TEC",
     subtitle: "Research Intern - FullStack Developer",
     content:
-      "Developed a project using innovative technologies such as Next.js (a React.js framework), GraphQL, node.js with typescript, and PostgreSQL. The project consisted of a platform to gather data from Bluetooth devices connect to a smartphone. During my internship, I also had the opportunity to modify an Android application made with Java to fit my use case.",
+      "Created a project employing cutting-edge technologies, including Next.js (a React.js framework), GraphQL, node.js with TypeScript, and PostgreSQL. The project aimed to establish a platform for collecting data from Bluetooth devices connected to smartphones. Additionally, during my internship, I adapted an existing Android application coded in Java to align with the project's requirements.",
   },
   {
     id: 4,
