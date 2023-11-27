@@ -3,7 +3,7 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Physics, usePlane, useSphere } from "@react-three/cannon";
-import { Text } from "@react-three/drei";
+import { Text, useTexture } from "@react-three/drei";
 import { Suspense } from "react";
 
 export default function Interactive() {
@@ -47,6 +47,7 @@ export default function Interactive() {
 }
 
 function InstancedSpheres({ count = 200 }) {
+  const texture = useTexture("/cross.jpg");
   const { viewport } = useThree();
   const [ref] = useSphere((index) => ({
     mass: 100,
@@ -61,7 +62,7 @@ function InstancedSpheres({ count = 200 }) {
       args={[null, null, count]}
     >
       <sphereBufferGeometry args={[1.2, 32, 32]} />
-      <meshLambertMaterial color="#00ff95" />
+      <meshLambertMaterial color="#da1219" map={texture} />
     </instancedMesh>
   );
 }
