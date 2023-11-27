@@ -48,6 +48,7 @@ export default function Interactive() {
 
 function InstancedSpheres({ count = 200 }) {
   const texture = useTexture("/cross.jpg");
+
   const { viewport } = useThree();
   const [ref] = useSphere((index) => ({
     mass: 100,

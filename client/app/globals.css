@@ -209,22 +209,24 @@ body[data-nav="true"] > #nav-toggle > .close {
   }
 
   #nav-toggle {
-    height: 15em;
-    width: 15em;
+    height: 2rem;
+    width: 2rem;
     position: fixed;
     z-index: 3;
     left: 50%;
     bottom: 3rem;
     transform: translateX(-50%);
-    background-color: rgba(0, 255, 149, 0.8);
-    border: none;
-    border-radius: 15rem;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(0 0 0 / 25%);
+    border-radius: 5rem;
     outline: none;
-    box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+    box-shadow: 0rem 0rem 10rem rgba(0 0 0 / 35%);
     cursor: pointer;
     transition: transform, background-color;
     transition-timing-function: ease;
     transition-duration: 400ms;
+    transition: color 1s ease-in;
   }
 
   #nav-links {
