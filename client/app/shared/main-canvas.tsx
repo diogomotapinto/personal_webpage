@@ -4,11 +4,11 @@ import { Physics } from "@react-three/cannon";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { Caption } from "./caption";
-import { InstancedSpheres } from "./intancedSpheres";
+import { InstancedSpheres } from "./intanced-spheres";
 import { Mouse } from "./mouse";
 import { Borders } from "./borders";
 
-export default function Interactive() {
+export function MainCanvas() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Canvas
