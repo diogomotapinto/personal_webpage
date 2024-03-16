@@ -63,7 +63,7 @@ function InstancedSpheres({ count = 200 }) {
       args={[null, null, count]}
     >
       <sphereBufferGeometry args={[1.2, 32, 32]} />
-      <meshLambertMaterial color="#da1219" map={texture} />
+      <meshLambertMaterial color="#0ea28a" map={texture} />
     </instancedMesh>
   );
 }
