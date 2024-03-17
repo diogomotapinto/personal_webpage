@@ -33,7 +33,7 @@ export function MainCanvas() {
           />
           <Caption>{`Diogo\nSoftware Developer\nBased in Amsterdam.`}</Caption>
           <Physics
-            gravity={[0, -50, 0]}
+            gravity={[0, -9.81, 0]}
             defaultContactMaterial={{ restitution: 0.5 }}
           >
             <group position={[0, 0, -10]}>
