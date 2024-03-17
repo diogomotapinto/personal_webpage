@@ -7,7 +7,7 @@ export default function Home() {
         <MainCanvas />
         {/* <Overlay /> */}
       </div>
-      <div className="h-screen w-full bg-white"></div>
+      {/* <div className="h-screen w-full bg-white"></div> */}
     </div>
   );
 }
