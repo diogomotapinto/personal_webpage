@@ -20,7 +20,7 @@ export function MainCanvas() {
           <fog attach="fog" args={["#2c54bb", 25, 35]} />
           <color attach="background" args={["#ffffff"]} />
           <ambientLight intensity={1.5} />
-          <directionalLight position={[-10, -10, -5]} intensity={0.5} />
+          {/* <directionalLight position={[-10, -10, -5]} intensity={0.5} /> */}
           <directionalLight
             castShadow
             intensity={4}

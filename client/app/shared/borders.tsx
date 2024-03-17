@@ -6,7 +6,11 @@ export function Borders() {
   return (
     <>
       <Plane
-        position={[0, -viewport.height / 2, 0]}
+        position={[0, viewport.height / 2, 0]}
+        rotation={[Math.PI / 2, 0, 0]}
+      />
+      <Plane
+        position={[0, -viewport.height / 2 + 1, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
       />
       <Plane
